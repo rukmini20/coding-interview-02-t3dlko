@@ -12,10 +12,8 @@ const Home = () => {
       const { status, body } = await getusersAPI(page);
       console.log(body.data);
 
-      console.log('~~~ body: ', body);
-      users = [...prev, ...body.data];
+      users = [...users, ...body.data];
       setUsers(users);
-      console.log('~~~~ users: ', users);
     } catch (err) {}
   };
   useEffect(() => {
@@ -24,6 +22,9 @@ const Home = () => {
 
   return (
     <div>
+         <button type="button" onClick={fetchData}>
+        next
+      </button>
       <div>
         {users?.map(({id,first_name,email }) => (
           <div key={id}>
@@ -32,9 +33,7 @@ const Home = () => {
         ))}
       </div>
       {page}
-      <button type="button" onClick={fetchData}>
-        next
-      </button>
+   
     </div>
   );
 };
