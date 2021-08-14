@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import axios from "axios";
+import Home from "./components/Home"
 
 // 1. Call API on page load -https://reqres.in/api/users?page=1
 // 2. Display data in string format
@@ -8,9 +8,7 @@ import axios from "axios";
 
 export default function App() {
  
-  return (
-    <div>
-      <button type="button" onClick={()=>this.setname}>page Next</button>
-    </div>
+  return (<>
+    <Home/></>
   );
 }
