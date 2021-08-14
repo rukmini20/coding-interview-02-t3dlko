@@ -12,10 +12,10 @@ const Home = () => {
       const { status, body } = await getusersAPI(page);
       console.log(body.data);
 
-      console.log('body: ', body.data);
+      console.log('~~~ body: ', body);
       users = [...prev, ...body.data];
       setUsers(users);
-      console.log('users: ', users);
+      console.log('~~~~ users: ', users);
     } catch (err) {}
   };
   useEffect(() => {
@@ -25,9 +25,9 @@ const Home = () => {
   return (
     <div>
       <div>
-        {users?.map(userItem => (
-          <div key={userItem.id}>
-            Name: {userItem.first_name} email: {userItem.email}
+        {users?.map(({id,first_name,email }) => (
+          <div key={id}>
+            Name: {first_name} email: {email}
           </div>
         ))}
       </div>
